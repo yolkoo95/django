@@ -1,0 +1,13 @@
+# to let travis-ci check files when committing changes
+# in YALE format:
+# key: word
+# key: 
+#     - list
+#     - list
+language: python
+python:
+    - 3.7
+install:
+    - pip install -r requirement.txt
+script:
+    - python manage.py test
