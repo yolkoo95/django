@@ -1,0 +1,16 @@
+{% extends 'blogsite/base.html' %}
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block body %}
+    <h1>Blog</h1>
+    <hr>
+    {% for post in posts %}
+        <li> <a href="{% url 'post' post.slug %}">{{ post }}</a></li>
+    {% empty %}
+        <li>No post</li>
+    {% endfor %}
+
+    <h3>server time: {{ now }}</h3>
+{% endblock %}

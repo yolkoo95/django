@@ -1,0 +1,12 @@
+{% extends 'blogsite/base.html' %}
+{% block title %}
+    {{ post }}
+{% endblock %}
+
+{% block body %}
+    <h1>Title {{ post }}</h1>
+    <hr>
+    <p>{{ post.body }}</p>
+
+    <footer><a href="{% url 'homepage' %}">back to homepage</a></footer>
+{% endblock %}
