@@ -1,0 +1,87 @@
+{% extends 'RETest/base.html' %}
+
+{% block body %}
+
+    <!-- App Name -->
+    <div class="text-center">
+        <h1 class="display-5">Regular Expression Checker</h1>
+    </div>
+
+    
+    <div class="container mt-2">
+        <div class="row justify-content-center">
+            <div class="col-7 ">
+                <!-- Description -->
+                <hr>
+                <div class="text-muted text-center">
+                    <p class="m-md-0">How to use</p>
+                    <small>Type in a regular expression and samples to check if the regular expression works, 
+                        <br>and click Demo button to learn more.</small>
+                </div>
+                <hr>
+            
+                <!-- Form -->
+                <form>
+                    <div class="form-label-group">
+                        <input type="text" id="re-input" class="form-control" placeholder="Regular Expression" required autofocus>
+                        <label for="re-input">Regular Expression</label>
+                    </div>
+
+                    <!-- Sample Area -->
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Test Samples</span>
+                        </div>
+                        <textarea class="form-control" aria-label="Test Samples" style="height: 10rem;"></textarea>
+                    </div>
+
+                    <!-- Button group-->
+                    <div class="btn-group-md float-right mt-4 m-md-4" role="group" aria-label="btn-group">
+                        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#RETestDEMO">Demo</button>
+                        <button type="submit" class="btn btn-primary">Check</button>
+
+                        <!-- Modal triggered by demo button-->
+                        <div class="modal fade" id="RETestDEMO" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">Demo</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p> 
+                                            First, type in regular expression that you want to check, for example, 
+                                            <br>&emsp;&emsp;<code>'^demo/(\d{4})/(\d{1,2})/(\d{1,2})/$'</code>
+                                        </p>
+                                        <p>
+                                            Second, type in some samples separated by <kbd>enter</kbd> to check if the expression works, for example, 
+                                            <br>&emsp;&emsp;<code>demo/2020/12/24</code>
+                                            <br>&emsp;&emsp;<code>demo/2020/12/1</code>
+                                            <br>&emsp;&emsp;<code>demo/12/24/2020</code>
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Result Area -->
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Match Result</span>
+                        </div>
+                        <textarea class="form-control" aria-label="Test Samples" style="height: 10rem;"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+{% endblock %}
