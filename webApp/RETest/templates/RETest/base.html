@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta name="author" content="Unicorn">
+        <meta name="email" content="15399018708@163.com">
+        <link rel="icon" href="{% static 'RETest/icon/icon_512x512@2x.png' %}" sizes="32x32" type="image/png">
+        <link rel="icon" href="{% static 'RETest/icon/icon_512x512@2x.png' %}" sizes="16x16" type="image/png">
+        <link rel="stylesheet" type="text/css" href="{% static 'RETest/bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'RETest/placeholder.css' %}">
+        <script src="{% static 'RETest/form.js' %}"></script>
+        <title>{% block title %} {% endblock %}</title>
+    </head>
+    <body>
+        {% include 'RETest/nav.html' %}
+
+        {% block body %}
+
+        {% endblock %}
+
+        {% include 'RETest/footer.html' %}
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="{% static 'RETest/bootstrap-4.4.1-dist/js/bootstrap.min.js' %}"></script>
+    </body>
+</html>

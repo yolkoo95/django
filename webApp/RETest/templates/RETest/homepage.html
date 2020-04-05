@@ -1,0 +1,86 @@
+{% extends 'RETest/base.html' %}
+{% load static %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block body %}
+
+    <main role="main" class="container">
+        <!-- Quote -->
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="px-3 py-3 pt-md-2 pb-md-0 mx-auto text-center">
+                    <blockquote>
+                        <p class="lead mb-1" style="font-size: 1.5rem">We turn not older with years, but newer every day.</p>
+                        <footer class="blockquote-footer text-right pr-6" style="font-size: 1rem">Emily Dickinson</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+
+        <!-- WebApp display -->
+        <div class="row mb-2 mt-4">
+            <div class="col-md-6">
+                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">Webapp</strong>
+                        <h3 class="mb-0">R.E. Tester</h3>
+                        <div class="mb-2 text-muted" style="font-size: .9rem">Apr 5</div>
+                        <!-- description: keep within 2 lines-->
+                        <p class="card-text mb-auto">
+                            This app will help you check if your regular expression works.
+                        </p>
+                        <a href="{% url 'RETest-index' %}" class="stretched-link">Go to App</a>
+                    </div>
+                    <!-- svg demo -->
+                    <div class="col-auto d-none d-lg-block">
+                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: WebApp">
+                            <title>Demo</title>
+                            <rect width="100%" height="100%" fill="#55595c"></rect>
+                            <text x="50%" y="18%" style="font-size: 1.2rem" fill="#eceeef" dy=".1em">Regular Expression</text>
+                            <text x="50%" y="35%" style="font-size: 1.1rem" fill="#eceeef" dy=".1em">
+                                take a date example: 
+                            </text>
+                            <text x="50%" y="45%" style="font-size: 1rem" fill="#eceeef" dy=".1em">
+                                br\d{1,4}/\d{1,2}/\d{1,2}
+                            </text>
+                            <text x="50%" y="55%" style="font-size: 1.1rem" fill="#eceeef" dy=".1em">
+                                test samples: 
+                            </text>
+                            <text x="50%" y="65%" style="font-size: 1rem" fill="#eceeef" dy=".1em">
+                                2018/12/24, 2019/2/21
+                            </text>
+                            <text x="50%" y="75%" style="font-size: 1rem" fill="#eceeef" dy=".1em">
+                                12/22/1995, 02/12/1996
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design display -->
+            <div class="col-md-6">
+                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success">Design</strong>
+                        <h3 class="mb-0">Post title</h3>
+                        <div class="mb-2 text-muted">Nov 11</div>
+                        <p class="mb-auto">This is text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="stretched-link">Continue reading</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#55595c"/>
+                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+{% endblock %}
