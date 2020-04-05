@@ -25,13 +25,16 @@
                 <hr>
             
                 <!-- Form -->
-                <form id="re_form" action="{% url 'RETest-checker' %}" method="POST">
+                <form class="needs-validation" novalidate action="{% url 'RETest-checker' %}" method="POST">
                     {% csrf_token %}
                     
                     <!-- Regular Expression -->
                     <div class="form-label-group">
                         <input type="text" id="re_input" name="re_input" class="form-control" placeholder="Regular Expression" required autofocus>
-                        <label for="re-input">Regular Expression</label>
+                        <label for="re-input">Regular Expression Input</label>
+                        <div class="invalid-feedback">
+                            Please input a regular expression.
+                        </div>
                     </div>
 
                     <!-- Sample Area -->
@@ -39,7 +42,10 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Test Samples</span>
                         </div>
-                        <textarea id="re_samples" name="re_samples" class="form-control" aria-label="Test Samples" style="height: 10rem;"></textarea>
+                        <textarea id="re_samples" name="re_samples" class="form-control" aria-label="Test Samples" style="height: 10rem;" required></textarea>
+                        <div class="invalid-feedback">
+                            Please input test samples.
+                        </div>
                     </div>
 
                     <!-- Button group-->
