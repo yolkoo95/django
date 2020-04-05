@@ -4,9 +4,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta name="author" content="Unicorn">
+        <meta name="email" content="15399018708@163.com">
+        <link rel="icon" href="{% static 'RETest/icon/icon_512x512@2x.png' %}" sizes="32x32" type="image/png">
+        <link rel="icon" href="{% static 'RETest/icon/icon_512x512@2x.png' %}" sizes="16x16" type="image/png">
         <link rel="stylesheet" type="text/css" href="{% static 'RETest/bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'RETest/placeholder.css' %}">
-        <title>Regular Expression</title>
+        <script src="{% static 'RETest/form.js' %}"></script>
+        <title>{% block title %} {% endblock %}</title>
     </head>
     <body>
         {% include 'RETest/nav.html' %}

@@ -1,10 +1,14 @@
 {% extends 'RETest/base.html' %}
 
+{% block title %}
+    Regular Expression
+{% endblock %}
+
 {% block body %}
 
     <!-- App Name -->
     <div class="text-center">
-        <h1 class="display-5">Regular Expression Checker</h1>
+        <h1 class="display-4">Regular Expression Checker</h1>
     </div>
 
     
@@ -21,9 +25,12 @@
                 <hr>
             
                 <!-- Form -->
-                <form>
+                <form id="re_form" action="{% url 'RETest-checker' %}" method="POST">
+                    {% csrf_token %}
+                    
+                    <!-- Regular Expression -->
                     <div class="form-label-group">
-                        <input type="text" id="re-input" class="form-control" placeholder="Regular Expression" required autofocus>
+                        <input type="text" id="re_input" name="re_input" class="form-control" placeholder="Regular Expression" required autofocus>
                         <label for="re-input">Regular Expression</label>
                     </div>
 
@@ -32,7 +39,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Test Samples</span>
                         </div>
-                        <textarea class="form-control" aria-label="Test Samples" style="height: 10rem;"></textarea>
+                        <textarea id="re_samples" name="re_samples" class="form-control" aria-label="Test Samples" style="height: 10rem;"></textarea>
                     </div>
 
                     <!-- Button group-->
@@ -69,18 +76,40 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Result Area -->
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Match Result</span>
-                        </div>
-                        <textarea class="form-control" aria-label="Test Samples" style="height: 10rem;"></textarea>
-                    </div>
                 </form>
             </div>
         </div>
-        
+        <!-- Result -->
+        {% if results %}
+            <hr>
+            <h2 class="text-muted text-center">Match Results: </h2>
+            <div class="row justify-content-center mt-3">
+                <div class="col-5">
+                    <div class="list-group">
+                        {% if pattern %}
+                            <a class="list-group-item list-group-item-action list-group-item-primary text-center">{{ pattern }}</a>
+                        {% endif %}
+                        
+                        {% for sample, result in results %}
+                            {% if result %}
+                                <a class="list-group-item list-group-item-action list-group-item-success text-center">{{ sample }} -> {{ result }}</a>
+                            {% else %}
+                                <a class="list-group-item list-group-item-action list-group-item-danger text-center">{{ sample }} -> Nothing </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Back to Homepage -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <a href="{% url 'homepage' %}" class="btn btn-outline-info" style="font-size: 1.2rem" role="button">Back to Homepage</a>
+            </div>
+        </div>
     </div>
     
     
