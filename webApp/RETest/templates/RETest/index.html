@@ -1,120 +1,183 @@
-{% extends 'RETest/base.html' %}
-
-{% block title %}
-    Regular Expression
-{% endblock %}
+{% extends 'RETest/base.html' %} 
+{% block title %} 
+Regular Expression 
+{%endblock %} 
 
 {% block body %}
+<!-- App Name -->
+<div class="container mt-5 text-center">
+  <h1 class="display-5">Regular Expression Checker</h1>
+</div>
 
-    <!-- App Name -->
-    <div class="container mt-5 text-center">
-        <h1 class="display-5">Regular Expression Checker</h1>
-    </div>
+<div class="container mt-2">
+  <div class="row justify-content-center">
+    <div class="col-7">
+      <!-- Description -->
+      <hr />
+      <div class="text-muted text-center">
+        <p class="m-md-0">How to use</p>
+        <small
+          >Type in a regular expression and samples to check if the regular
+          expression works, <br />and click Demo button to learn more.</small
+        >
+      </div>
+      <hr />
 
-    
-    <div class="container mt-2">
-        <div class="row justify-content-center">
-            <div class="col-7 ">
-                <!-- Description -->
-                <hr>
-                <div class="text-muted text-center">
-                    <p class="m-md-0">How to use</p>
-                    <small>Type in a regular expression and samples to check if the regular expression works, 
-                        <br>and click Demo button to learn more.</small>
-                </div>
-                <hr>
-            
-                <!-- Form -->
-                <form class="needs-validation" novalidate action="{% url 'RETest-checker' %}" method="POST">
-                    {% csrf_token %}
-                    
-                    <!-- Regular Expression -->
-                    <div class="form-label-group">
-                        <input type="text" id="re_input" name="re_input" class="form-control" placeholder="Regular Expression" required autofocus>
-                        <label for="re-input">Regular Expression</label>
-                        <div class="invalid-feedback">
-                            Please input a regular expression.
-                        </div>
-                    </div>
+      <!-- Form -->
+      <form
+        class="needs-validation"
+        novalidate
+        action="{% url 'RETest-checker' %}"
+        method="POST"
+      >
+        {% csrf_token %}
 
-                    <!-- Sample Area -->
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Test Samples</span>
-                        </div>
-                        <textarea id="re_samples" name="re_samples" class="form-control" aria-label="Test Samples" style="height: 10rem;" required></textarea>
-                        <div class="invalid-feedback">
-                            Please input test samples.
-                        </div>
-                    </div>
-
-                    <!-- Button group-->
-                    <div class="btn-group-md float-right mt-4 m-md-3" role="group" aria-label="btn-group">
-                        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#RETestDEMO">Demo</button>
-                        <button type="submit" class="btn btn-primary">Check</button>
-
-                        <!-- Modal triggered by demo button-->
-                        <div class="modal fade" id="RETestDEMO" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalCenterTitle">Demo</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p> 
-                                            First, type in regular expression that you want to check, for example, 
-                                            <br>&emsp;&emsp;<code>'^demo/(\d{4})/(\d{1,2})/(\d{1,2})/$'</code>
-                                        </p>
-                                        <p>
-                                            Second, type in some samples separated by <kbd>enter</kbd> to check if the expression works, for example, 
-                                            <br>&emsp;&emsp;<code>demo/2020/12/24</code>
-                                            <br>&emsp;&emsp;<code>demo/2020/12/1</code>
-                                            <br>&emsp;&emsp;<code>demo/12/24/2020</code>
-                                        </p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+        <!-- Regular Expression -->
+        <div class="form-label-group">
+          <input
+            type="text"
+            id="re_input"
+            name="re_input"
+            class="form-control"
+            placeholder="Regular Expression"
+            required
+            autofocus
+          />
+          <label for="re-input">Regular Expression</label>
+          <div class="invalid-feedback">
+            Please input a regular expression.
+          </div>
         </div>
-        <!-- Result -->
-        {% if results %}
-            <hr>
-            <h2 class="text-muted text-center">Match Results: </h2>
-            <div class="row justify-content-center mt-3">
-                <div class="col-5">
-                    <div class="list-group">
-                        {% if pattern %}
-                            <a class="list-group-item list-group-item-action list-group-item-primary text-center">{{ pattern }}</a>
-                        {% endif %}
-                        
-                        {% for sample, result in results %}
-                            {% if result %}
-                                <a class="list-group-item list-group-item-action list-group-item-success text-center">{{ sample }} -> {{ result }}</a>
-                            {% else %}
-                                <a class="list-group-item list-group-item-action list-group-item-danger text-center">{{ sample }} -> Nothing </a>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        {% endif %}
-    </div>
-    
-    <!-- Back to Homepage -->
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-3">
-                <a href="{% url 'homepage' %}" class="btn btn-outline-info" style="font-size: 1.2rem" role="button">Back to Homepage</a>
-            </div>
+
+        <!-- Sample Area -->
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Test Samples</span>
+          </div>
+          <textarea
+            id="re_samples"
+            name="re_samples"
+            class="form-control"
+            aria-label="Test Samples"
+            style="height: 10rem;"
+            required
+          ></textarea>
+          <div class="invalid-feedback">
+            Please input test samples.
+          </div>
         </div>
+
+        <!-- Button group-->
+        <div
+          class="btn-group-md float-right mt-4 m-md-3"
+          role="group"
+          aria-label="btn-group"
+        >
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            data-toggle="modal"
+            data-target="#RETestDEMO"
+          >
+            Demo
+          </button>
+          <button type="submit" class="btn btn-primary">Check</button>
+
+          <!-- Modal triggered by demo button-->
+          <div
+            class="modal fade"
+            id="RETestDEMO"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">Demo</h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    First, type in regular expression that you want to check,
+                    for example,
+                    <br />&emsp;&emsp;<code
+                      >'^demo/(\d{4})/(\d{1,2})/(\d{1,2})/$'</code
+                    >
+                  </p>
+                  <p>
+                    Second, type in some samples separated by
+                    <kbd>enter</kbd> to check if the expression works, for
+                    example, <br />&emsp;&emsp;<code>demo/2020/12/24</code>
+                    <br />&emsp;&emsp;<code>demo/2020/12/1</code>
+                    <br />&emsp;&emsp;<code>demo/12/24/2020</code>
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
+  <!-- Result -->
+  {% if results %}
+  <hr />
+  <h2 class="text-muted text-center">Match Results:</h2>
+  <div class="row justify-content-center mt-3">
+    <div class="col-5">
+      <div class="list-group">
+        {% if pattern %}
+        <a
+          class="list-group-item list-group-item-action list-group-item-primary text-center"
+          >{{ pattern }}</a
+        >
+        {% endif %} {% for sample, result in results %} {% if result %}
+        <a
+          class="list-group-item list-group-item-action list-group-item-success text-center"
+          >{{ sample }} -> {{ result }}</a
+        >
+        {% else %}
+        <a
+          class="list-group-item list-group-item-action list-group-item-danger text-center"
+          >{{ sample }} -> Nothing
+        </a>
+        {% endif %} {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+<!-- Back to Homepage -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <a
+        href="{% url 'homepage' %}"
+        class="btn btn-outline-info"
+        style="font-size: 1.2rem;"
+        role="button"
+        >Back to Homepage</a
+      >
+    </div>
+  </div>
+</div>
 {% endblock %}

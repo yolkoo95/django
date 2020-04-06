@@ -1,10 +1,14 @@
 from django.shortcuts import render
+import random
 
 # Create your views here.
 
 def index(request):
-    context = {
 
+    num = random.randint(0, 22)
+    
+    context = {
+        'num': num,
     }
 
     return render(request, 'logindemo/login.html', context)
