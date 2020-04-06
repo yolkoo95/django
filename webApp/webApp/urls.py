@@ -20,6 +20,8 @@ from RETest import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('RETest/', include('RETest.urls')),
+    # homepage
     path('', views.homepage, name="homepage"),
+    path('RETest/', include('RETest.urls')),
+    path('logindemo/', include('logindemo.urls')),
 ]

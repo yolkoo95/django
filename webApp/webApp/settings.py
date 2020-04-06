@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'RETest.apps.RetestConfig',
+    'logindemo.apps.LogindemoConfig',
 ]
 
 MIDDLEWARE = [

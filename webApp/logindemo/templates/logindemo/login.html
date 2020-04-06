@@ -1,0 +1,139 @@
+{% extends 'logindemo/base.html' %}
+{% load static %}
+
+{% block title %}
+  Login &mdash; Unicorn
+{% endblock %}
+
+{% block body %}
+    <div id="app">
+      <section class="section">
+        <div class="d-flex flex-wrap align-items-stretch">
+          <div
+            class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white"
+          >
+            <div class="p-4 m-3">
+              <img
+                src="{% static 'icon/icon_128x128@2x.png' %}"
+                alt="logo"
+                width="60"
+                class="shadow-light rounded-circle mb-4 mt-2"
+              />
+              <h4 class="text-dark font-weight-normal">
+                Welcome to <span class="font-weight-bold">Unicorn</span>
+              </h4>
+              <p class="text-muted">
+                We dedicate to providing Free and Useful web application
+              </p>
+
+              <!-- login form -->
+              <form action="" class="needs-validation" novalidate>
+                <!-- login via email -->
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    id="email"
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    placeholder="foo@gmail.com"
+                    tabindex="1"
+                    required
+                    autofocus
+                  />
+                  <div class="invalid-feedback">
+                    Please fill in your email
+                  </div>
+                </div>
+
+                <!-- password -->
+                <div class="form-group">
+                  <div class="d-block">
+                    <label for="password" class="control-label">Password</label>
+                    <div class="float-right">
+                      <a href="#" class="text-small">Forgot Password?</a>
+                    </div>
+                  </div>
+                  <input
+                    id="password"
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    tabindex="2"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please fill in your password
+                  </div>
+                </div>
+
+                <!-- checkbox -->
+                <div class="form-group">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="invalidCheck"
+                      required
+                    />
+                    <label class="form-check-label" for="invalidCheck">
+                      Agree to terms and conditions
+                    </label>
+                    <div class="invalid-feedback">
+                      You must agree before submitting.
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg btn-icon icon-right login"
+                  tabindex="4"
+                >
+                  Login
+                </button>
+              </form>
+
+              <!-- prompt for register -->
+              <div class="mt-5 text-center login-form-item">
+                Don&apos;t have an account? <a href="{% url 'register' %}">Create One</a>
+              </div>
+
+              <!-- copyright description -->
+              <div class="text-center mt-5 text-small">
+                Copyright &copy; 2020 Unicorn
+                <div class="mt-2" id="copyright"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- wallpaper -->
+          <div
+            class="col-lg-8 col-md-6 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom"
+            data-background="{% static 'login_wallpaper/carles-rabada-DD1fSz2HF1s-unsplash.jpg' %}"         
+            style="background-image: url('../../static/login_wallpaper/carles-rabada-DD1fSz2HF1s-unsplash.jpg');"
+          >
+            <div class="absolute-bottom-left index-2">
+              <div class="text-light p-5 pb-2">
+                <div class="mb-3 pb-2">
+                  <h1 class="mb-2 display-4 font-weight-bold">Good Morning</h1>
+                  <h5 class="font-weight-normal text-muted-transparent">
+                    Free Inc.
+                  </h5>
+                </div>
+                Photo by
+                <a class="text-light" target="_blank" href="#">Carles Rabada</a> on
+                <a class="text-light" target="_blank" href="https://unsplash.com/">Unsplash</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="{% static 'logindemo/checker.js' %}"></script>
+{% endblock %}
+
+
+
