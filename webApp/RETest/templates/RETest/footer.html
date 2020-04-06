@@ -1,12 +1,93 @@
 {% load static %}
+
 <div class="container">
     <footer class="my-5 pt-4 text-muted text-center text-small border-top">
         <img class="mb-1" src="{% static 'RETest/icon/icon_512x512@2x.png' %}" alt="icon" width="30" height="30">
-        <p class="mb-1">&copy; 2019-2020 Unicorn.org</p>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Contact</a></li>
-            <li class="list-inline-item"><a href="#">Github</a></li>
-        </ul>
+        <p class="mb-0">&copy; 2019-2020 Unicorn.org</p>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#Privacy">Privacy</button>
+                <button type="button" class="btn btn-link"><a href="https://github.com/yolkoo95/django">Github</a></button>
+                <!-- Privacy Panel-->
+                <div class="modal fade" id="Privacy" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="PrivacyTitle">Privacy</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-justify" style="font-size: small">
+                                <p> 
+                                    <h6><strong>Privacy Policy</strong></h6> 
+                                    <br>&emsp;&emsp;Protecting your private information is our priority. This Statement of Privacy applies to www.yolkoo.com and Unicorn and governs data collection and usage. 
+                                    For the purposes of this Privacy Policy, unless otherwise noted, all references to Unicorn include www.yolkoo.com and Unicorn . The Unicorn website is a Web Application for general public to use freely site. 
+                                    By using the Unicorn website, you consent to the data practices described in this statement.
+                                </p>
+                                <p>
+                                    <h6><strong>Collection of your Personal Information</strong></h6>
+                                    <br>&emsp;&emsp;We do not collect any personal information about you unless you voluntarily provide it to us. However, you may be required to provide certain personal information 
+                                    to us when you elect to use certain products or services available on the Site. These may include: (a) registering for an account on our Site; (b) entering a sweepstakes or contest 
+                                    sponsored by us or one of our partners; (c) signing up for special offers from selected third parties; (d) sending us an email message; (e) submitting your credit card or other payment 
+                                    information when ordering and purchasing products and services on our Site. To wit, we will use your information for, but not limited to, communicating with you in relation to services 
+                                    and/or products you have requested from us. We also may gather additional personal or non-personal information in the future.
+                                </p>
+                                <p>
+                                    <h6><strong>Sharing Information with Third Parties</strong></h6>
+                                    <br>&emsp;&emsp;Unicorn does not sell, rent or lease its customer lists to third parties. Unicorn may share data with trusted partners to help perform statistical analysis, send you email or postal mail, 
+                                    provide customer support, or arrange for deliveries. All such third parties are prohibited from using your personal information except to provide these services to Unicorn and they are 
+                                    required to maintain the confidentiality of your information.
+                                    <br>&emsp;&emsp;Unicorn may disclose your personal information, without notice, if required to do so by law or in the good faith belief that such action is necessary to: (a) conform to the edicts of 
+                                    the law or comply with legal process served on Unicorn or the site; (b) protect and defend the rights or property of Unicorn ; andJor (c) act under exigent circumstances to protect the personal 
+                                    safety of users of Unicorn , or the public.
+                                </p>
+                                <p>
+                                    <h6><strong>Automatically Collected Information</strong></h6>
+                                    <br>&emsp;&emsp;Information about your computer hardware and software may be automatically collected by Unicorn . This information can include: your IP address, browser type, domain names, access times 
+                                    and referring website addresses. This information is used for the operation of the service, to maintain quality of the service, and to provide general statistics regarding use of the Unicorn website.
+                                </p>
+                                <p>
+                                    <h6><strong>Links</strong></h6>
+                                    <br>&emsp;&emsp;This website contains links to other sites. Please be aware that we are not responsible for the content or privacy practices of such other sites. We encourage our users to be aware when 
+                                    they leave our site and to read the privacy statements of any other site that collects personally identifiable information.        
+                                </p>
+                                <p>
+                                    <h6><strong>Children Under Thirteen</strong></h6>
+                                    <br>&emsp;&emsp;Unicorn does not knowingly collect personally identifiable information from children under the age of thirteen. If you are under the age of thirteen, you must ask your parent or guardian 
+                                    for permission to use this website.
+                                </p>
+                                <p>
+                                    <h6><strong>E-mail Communications</strong></h6>
+                                    <br>&emsp;&emsp;From time to time, Unicorn may contact you via email for the purpose of providing announcements, promotional offers, alerts, confirmations, surveys, and/or other general communication.
+                                </p>
+                                <p>
+                                    <h6><strong>Changes to this Statement</strong></h6>
+                                    <br>&emsp;&emsp;Unicorn reserves the right to change this Privacy Policy from time to time. We will notify you about significant changes in the way we treat personal information by sending a notice to 
+                                    the primary email address specified in your account, by placing a prominent notice on our site, andJor by updating any privacy information on this page. Your continued use of the Site and/or Services available 
+                                    through this Site after such modifications will constitute your: (a) acknowledgment of the modified Privacy Policy; and (b) agreement to abide and be bound by that Policy.
+                                </p>
+                                <p>
+                                    <h6><strong>Contact Information</strong></h6>
+                                    <br>&emsp;&emsp;Unicorn welcomes your questions or comments regarding this Statement of Privacy. If you believe that Unicorn has not adhered to this
+                                    Statement, please contact Unicorn at:
+                                    <br>
+                                    <address>
+                                        <br>&emsp;&emsp;<strong>Unicorn,Inc.</strong>
+                                        <br>&emsp;&emsp;Shaanxi, Xi'an, China
+                                        <br>&emsp;&emsp;Tel:(86)13309285508
+                                        
+                                        <br>&emsp;&emsp;<strong>E-mail</strong>
+                                        <br>&emsp;&emsp;15399018708@163.com
+                                    </address>
+                                </p>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>      
     </footer>
 </div>
